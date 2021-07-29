@@ -1,0 +1,13 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Need To Verify Email");
+?>
+	<h1>Need to verify your email</h1>
+	Sorry, we still need you to verify your email.<br/>
+	<br/>
+	Please check your email for a message from <i>&lt;no-reply@killersnails.com&gt; <b>Verify your Killer Snails Account</b></i>.<br/>
+	<br/>
+<?php include_once realpath( dirname( __FILE__ ) )."/resend_form.php";?>
+	<br/>
+	<a href="./logout">Logout</a>
+<?php writeFooter(); ?>

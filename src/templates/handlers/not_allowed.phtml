@@ -1,0 +1,7 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Method Not Allowed");
+?>
+	<h1>Method not allowed</h1>
+	Method must be one of: <?php echo implode(', ', $methods); ?>
+<?php writeFooter(); ?>

@@ -1,0 +1,13 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Unhandled Exception");
+$requestTime = $request->getServerParam("REQUEST_TIME");
+$date = date_create("@$requestTime",timezone_open("America/New_York"));
+$time= $date->format('Y-m-d H:i:s');
+$url = $request->getServerParam("REDIRECT_URL");
+?>
+	<h1>OOOPS</h1>
+	Something went wrong at <?php echo $url; ?> at <?php echo $time; ?> ET.<br/>
+	<br/>
+	You may need to contact someone...
+<?php writeFooter(); ?>

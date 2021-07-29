@@ -1,0 +1,11 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/includes.php";
+writeHeader("Authorize");
+?>
+	<h1>Authorize</h1>
+	<form method="post">
+		<label>Do You Authorize TestClient?</label><br />
+		<input type="submit" name="authorized" value="yes">
+		<input type="submit" name="authorized" value="no">
+	</form>
+<?php writeFooter(); ?>

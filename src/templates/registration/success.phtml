@@ -1,0 +1,36 @@
+<?php
+include_once realpath(dirname(__FILE__)) . "/../includes.php";
+writeHeader("Registration Successful");
+?>
+<body style="background-image: url(./assets/img/water.jpg); background-size: cover">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-sm-10 col-12">
+            <img src="./assets/img/logo.png" alt="" class="img-responsive w-25 mb-4">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-12 mx-auto ">
+            <div class="login-box shadow">
+                <h4 class="text-center font-weight-bold"><strong>REGISTRATION SUCCESSFUL</strong></h4>
+                <?php if (isset($message) && trim($message) != "") { ?>
+                    <div class="row">
+                        <div class="col-12">
+                            <p class="alert alert-danger text-center"><small><?php echo $message; ?></small></p>
+                        </div>
+                    </div>
+                <?php } ?>
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="text-center">Thank you for registering, <?php echo $fullname; ?>!</h5>
+                        <hr>
+                        <p>Please check your email (<?php echo $email; ?>) for a confirmation code to complete the registration</p>
+                        <p>Once you verify your email, you will be able to <a href='login' class="orange-link">login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

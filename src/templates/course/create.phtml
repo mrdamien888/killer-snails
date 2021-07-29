@@ -1,0 +1,66 @@
+<?php
+include_once realpath(dirname(__FILE__)) . "/../includes.php";
+writeHeader("Create Course");
+?>
+    <body>
+<div class="container-fluid">
+<?php writeProfileHeader($profile); ?>
+    <div class="page-body">
+    <h3>Add Course</h3>
+    <form id="create_class" method="post" action="create_course">
+        <input type="hidden" id="teacher_name" name="teacher_name" value="<?php echo $profile["last_name"]; ?>"/>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Class Name</label>
+                    <input id="class_name" name="class_name"
+                           class="form-control input-box rounded-0"
+                           maxlength="80"/>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-12">
+                <h4>Add Students</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-sm">
+                    <tr>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                    </tr>
+                    <?php for ($i = 0; $i < 5; $i++) { ?>
+                            <tr>
+                                <td>
+                                <input id="student_email<?php echo $i; ?>" name="student_email<?php echo $i; ?>"
+                                       class="form-control input-box rounded-0"
+                                       maxlength="80">
+                            </td>
+                            <td>
+                                <input id="student_firstname<?php echo $i; ?>" name="student_firstname<?php echo $i; ?>"
+                                       class="form-control input-box rounded-0"
+                                       maxlength="80">
+                            </td>
+                            <td>
+                                <input id="student_lastname<?php echo $i; ?>" name="student_lastname<?php echo $i; ?>"
+                                       class="form-control input-box rounded-0"
+                                       maxlength="80">
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark-blue btn-lg font-weight-bold rounded-0">CREATE CLASS</button> &nbsp;
+        <button onclick="window.location='./';" class="btn btn-light-gray btn-lg font-weight-bold rounded-0">CANCEL
+        </button>
+    </form>
+    <br/>
+<?php writeFooter(); ?>

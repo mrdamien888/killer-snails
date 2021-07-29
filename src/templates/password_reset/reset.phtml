@@ -1,0 +1,30 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Reset Password");
+?>
+	<h1>Reset password</h1>
+	<?php echo $firstname . " " . $lastname; ?>, please fill in the form to change your password.<br/>
+	<br/>
+	<form id="reset_password"  method="post" action="../reset_password">
+		<input type="hidden" id="code" name="code" value="<?php echo $code; ?>" >
+		<input type="hidden" id="email" name="email" value="<?php echo $email; ?>" >
+		<input type="hidden" id="firstname" name="firstname" value="<?php echo $firstname; ?>" >
+		<input type="hidden" id="lastname" name="lastname" value="<?php echo $lastname; ?>" >
+		<div>
+			<label>Password</label>
+			<input id="password" name="password" maxlength="80">
+		</div>
+		<div>
+			<label>Confirm Password</label>
+			<input id="confirm-password" name="confirm-password" maxlength="80">
+		</div>
+		<input id="reset_password" type="submit" name="submit" value="Reset Password" />
+	</form>
+<?php
+if(isset($message) && trim($message)!="") {
+	echo '<span style="color: #FF0000;">' . $message . '</span><br/>';
+}
+?>
+	<br/>
+	<a href="../">Cancel Update</a>
+<?php writeFooter(); ?>

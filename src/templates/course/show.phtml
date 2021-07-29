@@ -1,0 +1,40 @@
+<?php
+include_once realpath(dirname(__FILE__)) . "/../includes.php";
+writeHeader("Show Course - " . $course["title"], true);
+?>
+    <body>
+<div class="container-fluid">
+<?php writeProfileHeader($profile, true); ?>
+    <div class="page-body">
+    <h3><?php echo $course["title"]; ?></h3>
+    <h5>Teacher</h5>
+<?php echo $profile["first_name"] . " " . $profile["last_name"]; ?>
+    <hr/>
+    <h5>Students</h5>
+
+    <div class="row">
+    <div class="col-md-6">
+
+    <?php if (empty($students)) { ?>
+        <p class="alert alert-warning">No Students are enrolled in this course ..</p>
+    <?php } else { ?>
+    <table class="table table-sm">
+        <tr>
+            <th>Email</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <?php foreach ($students as $student) { ?>
+                <tr>
+                    <td><?php echo $student["email"]; ?></td>
+                    <td><?php echo $student["first_name"]; ?></td>
+                    <td><?php echo $student["last_name"]; ?></td>
+                    <td></td>
+                </tr>
+        <?php } ?>
+    </table>
+    <?php } ?>
+    <hr/>
+    <br/>
+    <a href="./../">Back</a>
+<?php writeFooter(); ?>

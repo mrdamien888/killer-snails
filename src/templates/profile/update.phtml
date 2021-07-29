@@ -1,0 +1,57 @@
+<?php
+include_once realpath(dirname(__FILE__)) . "/../includes.php";
+writeHeader("Update Profile");
+?>
+    <body>
+<div class="container-fluid">
+<?php writeProfileHeader($profile); ?>
+    <div class="page-body">
+    <h3>Update Profile</h3>
+    <form id="update_profile" method="post" action="update_profile">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input id="firstname" name="firstname"
+                           class="form-control input-box rounded-0"
+                           maxlength="80" value="<?php echo $profile["first_name"]; ?>"/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <input id="lastname" name="lastname"
+                           class="form-control input-box rounded-0"
+                           maxlength="80" value="<?php echo $profile["last_name"]; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>School</label>
+                    <input id="schoolname" name="schoolname"
+                           class="form-control input-box rounded-0"
+                           maxlength="255" value="<?php echo $profile["school_name"]; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Avatar URL</label>
+                    <input id="avatar" name="avatar"
+                           class="form-control input-box rounded-0"
+                           maxlength="255" value="<?php echo $profile["avatar"]; ?>">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-dark-blue btn-lg font-weight-bold rounded-0">UPDATE PROFILE</button> &nbsp;
+        <button onclick="window.location='./';" class="btn btn-light-gray btn-lg font-weight-bold rounded-0">CANCEL</button>
+    </form>
+    <br/>
+
+<?php writeFooter(); ?>

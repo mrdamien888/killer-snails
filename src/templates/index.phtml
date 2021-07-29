@@ -1,0 +1,43 @@
+<?php
+include "includes.php";
+writeHeader("Welcome");
+$userId = $accessToken["user_id"];
+$profile = $storage->getProfile($userId);
+$coursesTeaching = $storage->getCoursesTeaching($userId);
+$coursesEnrolledIn = $storage->getCoursesEnrolledIn($userId);
+?>
+<body>
+<div class="container-fluid">
+<?php writeProfileHeader($profile); ?>
+    <div class="page-body">
+	<h3>Classes Teaching:</h3>
+<?php
+if($coursesTeaching!==false) {
+	foreach($coursesTeaching as $course) {
+		echo '<a href="show_course/' . $course["course_id"] . '" class="btn btn-dark-blue btn-lg font-weight-bold rounded-0">' . $course["title"]. '</a> &nbsp;&nbsp; ';
+	}
+} else {
+	echo "No classes yet.<br/>";
+}
+?>
+	<br/><br><br>
+	<h3>Classes Enrolled In:</h3>
+<?php
+if($coursesEnrolledIn!==false) {
+	foreach($coursesEnrolledIn as $course) {
+		echo " - " . $course["title"]."<br/>";
+	}
+} else {
+	echo " - None<br/>";
+}
+?>
+	<br/>
+	<a href="create_course">Create Course</a><br/>
+	<hr/>
+	<a href="update_profile">Update Profile</a><br/>
+	<a href="logout">Logout</a>
+    </div>
+<?php writeFooter(); ?>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Verifcation Failed");
+?>
+	<h1>Verification code invalid</h1>
+	Sorry, but the code you gave was no longer valid.<br/>
+	<br/>
+	Please check the link to verify was clicked or copied exactly.<br/>
+	<br/>
+<?php include_once realpath( dirname( __FILE__ ) )."/resend_form.php"; ?>
+	<br/>
+	<a href="./logout">Logout</a>
+writeFooter(); ?>

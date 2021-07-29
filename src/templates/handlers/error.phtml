@@ -1,0 +1,17 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("ERROR");
+?>
+	<style>b { display: inline-block; width: 100px; }</style>
+	<h1>Error</h1>
+	The following error occurred. This should be reported to someone.
+	<h2>Details</h2>
+	<b>Type:</b><?php echo get_class($exception); ?><br/>
+	<b>Message:</b><?php echo $exception->getMessage(); ?><br/>
+	<b>File:</b><?php echo $exception->getFile(); ?><br/>
+	<b>Line:</b><?php echo $exception->getLine(); ?><br/>
+	<h2>Trace</h2>
+	<pre>
+<?php echo $exception->getTraceAsString(); ?>
+	</pre>
+<?php writeFooter(); ?>

@@ -1,0 +1,9 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Password Change Invalid");
+?>
+	<h1>Password Change Invalid!</h1>
+	The password change you clicked on has either expired or is now invalid.<br/>
+	<br/>
+	You can try to <a href="../login">login</a> or ask for <a href="../forgot_password">a new reset</a>.
+<?php writeFooter(); ?>

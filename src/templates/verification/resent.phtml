@@ -1,0 +1,8 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Verification Code Sent");
+?>
+	<h1>New Verification Code sent!</h1>
+	<h2>Please check your email (<?php echo $email; ?>) for a confirmation code to complete the registration</h2>
+	<p>Once you verify your email, you will be able to <a href='login'>login</a>
+<?php writeFooter(); ?>

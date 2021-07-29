@@ -1,0 +1,28 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Create A Password");
+?>
+	<h1>Create a password</h1>
+	Welcome, <?php echo $firstname . " " . $lastname; ?>, to a new Killer Snails account. In order to complete activation,
+	please fill in the form below to create a password.<br/>
+	<br/>
+	<form id="create_password"  method="post" action="../create_password">
+		<input type="hidden" id="code" name="code" value="<?php echo $code; ?>" >
+		<input type="hidden" id="email" name="email" value="<?php echo $email; ?>" >
+		<input type="hidden" id="firstname" name="firstname" value="<?php echo $firstname; ?>" >
+		<input type="hidden" id="lastname" name="lastname" value="<?php echo $lastname; ?>" >
+		<div>
+			<label>Password</label>
+			<input id="password" name="password" maxlength="80">
+		</div>
+		<div>
+			<label>Confirm Password</label>
+			<input id="confirm-password" name="confirm-password" maxlength="80">
+		</div>
+		<input id="create_password" type="submit" name="submit" value="Create Password" />
+	</form>
+<?php
+if(isset($message) && trim($message)!="") {
+	echo '<span style="color: #FF0000;">' . $message . '</span><br/>';
+}
+writeFooter(); ?>

@@ -1,0 +1,15 @@
+<?php
+include_once realpath( dirname( __FILE__ ) )."/../includes.php";
+writeHeader("Registration Failed");
+?>
+	<span style='color: red;'>
+	<h1>REGESTRATION FAILED:</h1>
+	<?php echo $email; ?> is already registered.<br/>
+	<br/>
+	Do you want to <a href='login'>login</a>?<br/>
+	</span>
+	<br/>
+<?php if($verified==false) { ?>
+	<i>Should have thing to resend a verification code if they aren't verified...</i>
+<?php }
+writeFooter(); ?>
